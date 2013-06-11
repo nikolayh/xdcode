@@ -1,0 +1,97 @@
+body {
+	font-family: Consolas, Inconsolata, "Lucida Console", "Courier New", monospace;
+	font-size: 14px;
+	font-style: italic;
+	background-color: #272822;
+	color: white;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top:0px;
+}
+::selection {
+	background: #3e3d32; /* Safari */ 
+	border: 1px solid #753f0b;
+	color:white;
+	}
+::-moz-selection {
+	background: #3e3d32; /* Firefox */
+	color:white;
+	padding:5px;
+}
+input, select, textarea, button{font-family:inherit;}
+
+.console_msg {
+	border: 1px solid #2c2c2c;
+	position: fixed;
+	bottom: 0;
+	width: 99%;
+	background-color: #404040;
+	padding:5px 5px 5px 5px;
+	z-index: 100;
+}
+	.console_msg input {
+		border-radius: 3px; 
+		-moz-border-radius: 3px; 
+		-webkit-border-radius: 3px; 
+		border: 1px solid #3C3C3C;
+		background-color: #e6e6e6;
+		width: 100%;
+		font-size: 14px;
+		padding:3px;
+	}
+
+.console_log {
+	color: #75715e;
+	padding: 5px;
+	/*border:1px solid red;*/
+	/*height: 91%;*/
+	
+}
+
+.console_response {
+	color:#a6e22e;
+	margin-top:5px;
+	padding: 5px;
+	border-top:1px dotted #464741;
+}
+.content{
+	width:100%; 
+	height:95%; 
+	overflow:auto; 
+	-webkit-border-radius:3px; 
+	-moz-border-radius:3px; 
+	border-radius:3px;
+}
+#error_tooltip {
+	position: fixed;
+	bottom: 0;
+	height: 25px;
+	width: 25%;
+	margin:auto;
+	/*border:1px solid red;*/
+	z-index: 10;
+	left:0px;
+
+	/*-webkit-border-top-left-radius: 8px;*/
+	-webkit-border-top-right-radius: 8px;
+	/*-moz-border-radius-topleft: 8px;*/
+	-moz-border-radius-topright: 8px;
+	/*border-top-left-radius: 8px;*/
+	border-top-right-radius: 8px;
+	border: 1px solid #4e0202;
+	background-color: #940808;
+}
+#error_tooltip #close {
+	font-style: normal;
+	position: relative;
+	top: 4px;
+	right: 5px;
+	text-transform: lowercase;
+	float: right;
+}
+#error_tooltip #message {
+	color: white;
+	position: relative;
+	top: 4px;
+	left: 5px;
+}
