@@ -11,6 +11,7 @@ class console {
 	private $output;
 	private $input;
 	private $deny = array('test','halt','su', 'sudo');
+	private $aliasCommands = array('ls'=>'ls -lia');
 
 	function __construct( $cmd, $dir ) {
 		$this->input = $this->sanitize($cmd, 'command');
@@ -32,12 +33,20 @@ class console {
 		}
 		return $string;
 	}
+
+	private function alias( $string) {
+		$string = $this->aliasCommands[trim(strtolower($string))];
+		if ( isset($string) ) {
+			return $string;
+		}
+		return $string;
+	}
 	
 	private function output_format( array $output ) {
 		$formatted = "";
 
 		foreach( $output as $line ) {
-			$formatted .= htmlentities($line) . "<br />";
+			$formatted .= str_replace("  ",str_repeat('&emsp;',2),htmlentities($line)) . "<br />";
 		}
 		return $formatted;
 	}
@@ -59,7 +68,8 @@ class console {
 
 
 		$this->currentDir = ($this->currentDir);
-		$command = $this->input;
+		$command = $this->alias($this->input);
+		// echo $command;
 
 	    // Change current dir.
 	    if (1 === preg_match('/^cd\s+(?<path>.+?)$/i', $command, $matches)) {
