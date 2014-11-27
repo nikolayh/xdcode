@@ -22,6 +22,9 @@ class console {
 		}
 	} 
 
+	/**
+	 * @param string $type
+	 */
 	private function sanitize( $string, $type ) {
 		switch( $type ) {
 			case 'command': 
